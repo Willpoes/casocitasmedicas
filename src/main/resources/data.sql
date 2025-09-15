@@ -1,2 +1,4 @@
-INSERT INTO pacientes (nombre, edad, historial) VALUES ('Ana', 30,'504');
-INSERT INTO pacientes (nombre, edad, historial) VALUES ('Beto', 25,'706');
+INSERT INTO pacientes (nombre, edad, historial, tipo_sangre)
+VALUES ('Ana', 30,'504','A+');
+INSERT INTO pacientes (nombre, edad, historial, tipo_sangre)
+VALUES ('Beto', 25,'706','O+');

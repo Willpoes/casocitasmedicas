@@ -1,26 +1,21 @@
-package com.example.Pacientes.entity;
+package com.example.Pacientes.dto;
 
-import jakarta.persistence.*;
+public class PacienteDetalleDTO {
 
-@Entity
-@Table(name = "pacientes")
-public class PacienteEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre;
     private int edad;
     private String historial;
     private String tipo_sangre;
 
-    public PacienteEntity() {}
+    public PacienteDetalleDTO() {
 
+    }
 
-    public PacienteEntity(String nombre, int edad, String historial, String tipo_sangre) {
-        this.nombre = nombre;
+    public PacienteDetalleDTO(Long id, String nombre, int edad, String historial, String tipo_sangre) {
+        this.id = id;
         this.edad = edad;
+        this.nombre = nombre;
         this.historial = historial;
         this.tipo_sangre = tipo_sangre;
     }
