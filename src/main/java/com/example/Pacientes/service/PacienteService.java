@@ -21,7 +21,7 @@ public class PacienteService {
         this.pacienteReposity = pacienteReposity;
     }
 
-    // 🔹 Listar pacientes -> Devuelvo DTOs
+    //  Listar pacientes -> Devuelvo DTOs
     public List<PacienteDTO> listarPacientes(){
         return pacienteReposity.findAll()
                 .stream() //convierte lista a un stram
@@ -29,7 +29,7 @@ public class PacienteService {
                 .collect(Collectors.toList());
     }
 
-    // 🔹 Obtener por ID -> Devuelvo DTO
+    //  Obtener por ID -> Devuelvo DTO
     public PacienteDTO obtenerPacientePorId(Long id){
         PacienteEntity entity = pacienteReposity.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Paciente con ID " + id + " no encontrado"));
@@ -50,7 +50,7 @@ public class PacienteService {
     }
 
 
-    // 🔹 Crear Paciente -> Recibo DTO y devuelvo DTO
+    //  Crear Paciente -> Recibo DTO y devuelvo DTO
     public PacienteDTO guardarPaciente(PacienteDTO pacienteDTO){
         PacienteEntity entity = convertirDTOAEntity(pacienteDTO);
         validar(entity);
@@ -58,7 +58,7 @@ public class PacienteService {
         return convertirEntityADTO(guardado);
     }
 
-    // 🔹 Actualizar historial de un paciente
+    //  Actualizar historial de un paciente
     public PacienteDetalleDTO actualizarHistorial(Long id, String nuevoHistorial) {
         PacienteEntity entity = pacienteReposity.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Paciente con ID " + id + " no existe"));
@@ -76,7 +76,7 @@ public class PacienteService {
     }
 
 
-    // 🔹 Actualizar Paciente -> Recibo DTO y devuelvo DTO
+    //  Actualizar Paciente -> Recibo DTO y devuelvo DTO
     public PacienteDTO cambiarPaciente(Long id, PacienteDTO pacienteDTO){
         PacienteEntity entity = convertirDTOAEntity(pacienteDTO);
         validar(entity);
@@ -97,7 +97,7 @@ public class PacienteService {
 
 
 
-    // 🔹 Eliminar paciente
+    //  Eliminar paciente
     public void eliminarPaciente(Long id){
         if (!pacienteReposity.existsById(id)) {
             throw new ResourceNotFoundException("No se puede eliminar, el paciente con ID " + id + " no existe");
