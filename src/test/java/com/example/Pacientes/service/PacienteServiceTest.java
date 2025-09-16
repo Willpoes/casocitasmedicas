@@ -35,7 +35,7 @@ public class PacienteServiceTest {
 
     @Test
     void listarPacientes_cuandoExistenPacientes_devuelveListaDTOs() {
-        // Arrange (preparar datos simulados)
+        // Arrange preparar datos simulados
         PacienteEntity paciente1 = new PacienteEntity("Juan", 30, "Historial1", "O+");
         paciente1.setId(1L);
         PacienteEntity paciente2 = new PacienteEntity("Maria", 25, "Historial2", "A-");
@@ -55,7 +55,7 @@ public class PacienteServiceTest {
         assertEquals("Juan", resultado.get(0).getNombre());
         assertEquals("Maria", resultado.get(1).getNombre());
 
-        verify(pacienteReposity, times(1)).findAll(); // verificar que se llamó al repositorio
+        verify(pacienteReposity, times(1)).findAll(); // verificar que llamó al repositorio
     }
 
     @Test

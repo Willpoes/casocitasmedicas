@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<!--  Usa una versión compatible con Spring Cloud Netflix Eureka -->
+		<!--  Usa una versión compatible con Spring Cloud -->
 		<version>3.3.4</version>
 		<relativePath/>
 	</parent>
@@ -16,7 +16,7 @@
 	<artifactId>Pacientes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Pacientes</name>
-	<description>Microservicio Pacientes con Eureka</description>
+	<description>Microservicio Pacientes</description>
 
 	<properties>
 		<java.version>21</java.version>
@@ -43,10 +43,9 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Eureka Client -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
 		</dependency>
 
 		<!-- Tests -->
@@ -67,6 +66,17 @@
 			<version>5.4.0</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<!-- Importar BOM de Spring Cloud -->
