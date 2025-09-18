@@ -38,7 +38,7 @@ public class PacienteController {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<PacienteDTO> crearPaciente(@RequestBody PacienteDTO pacienteDTO){
+    public ResponseEntity<PacienteDTO> crearPaciente(@RequestBody PacienteDTO pacienteDTO) {
         PacienteDTO nuevoPaciente = pacienteService.guardarPaciente(pacienteDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoPaciente);
     }
@@ -52,7 +52,6 @@ public class PacienteController {
     }
 
 
-
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<PacienteDTO> actualizarPaciente(
             @PathVariable Long id,
@@ -62,7 +61,7 @@ public class PacienteController {
     }
 
     @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<Void> borrarPaciente(@PathVariable Long id){
+    public ResponseEntity<Void> borrarPaciente(@PathVariable Long id) {
         pacienteService.eliminarPaciente(id);
         return ResponseEntity.noContent().build();
     }
