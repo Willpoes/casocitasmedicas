@@ -13,6 +13,8 @@ public class HistorialRequest {
 
     public HistorialRequest(String historial) {
         this.historial = historial;
-
     }
+    public HistorialRequest() {
+    }
+
 }

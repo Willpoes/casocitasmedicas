@@ -22,11 +22,11 @@ public class JwtUtil {
 
     public static String validarToken(String token) {
         return Jwts.parserBuilder()
-                .setSigningKey(SECRET_KEY)//verifica la firma
+                .setSigningKey(SECRET_KEY)//verifica la firma hecha con la misma clave
                 .build()
                 .parseClaimsJws(token)//decodifica y valida el token
                 .getBody()
-                .getSubject();
+                .getSubject();// Si es válido, devuelve elusername
     }
 }
 

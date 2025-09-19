@@ -21,9 +21,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 // Actuator endpoints que Consul necesita
                 .requestMatchers("/actuator/health", "/actuator/info").permitAll()
-                // Tu login sigue abierto
+                // login sigue abierto
                 .requestMatchers("/auth/login").permitAll()
-                // Si quieres que este endpoint sea público
+                // endpoint sea público
                 .requestMatchers("/pacientes/{id}").permitAll()
                 // todolo demás requiere autenticación
                 .anyRequest().authenticated()
