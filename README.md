@@ -1,0 +1,9 @@
+#Se usa consul para su ejecucion
+services:
+  consul:
+    image: hashicorp/consul:1.21
+    container_name: consul
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    command: "agent -server -bootstrap -ui -client=0.0.0.0"
