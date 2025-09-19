@@ -13,7 +13,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password) {
-        // 👇 Aquí deberías validar usuario/contraseña contra la BD.
+        // Se valida el usario y contrseña.
         if ("admin".equals(username) && "1234".equals(password)) {
             return JwtUtil.generarToken(username);
         }

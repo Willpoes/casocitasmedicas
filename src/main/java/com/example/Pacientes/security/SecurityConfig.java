@@ -17,16 +17,19 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable() // desactiva CSRF porque usas JWT (stateless)
+        http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/auth/login").permitAll() // cualquiera puede loguearse
-                .requestMatchers("/pacientes/{id}").permitAll() // endpoint público
-                .anyRequest().authenticated() //todolo demas requiere autenticación
+                // Actuator endpoints que Consul necesita
+                .requestMatchers("/actuator/health", "/actuator/info").permitAll()
+                // Tu login sigue abierto
+                .requestMatchers("/auth/login").permitAll()
+                // Si quieres que este endpoint sea público
+                .requestMatchers("/pacientes/{id}").permitAll()
+                // todolo demás requiere autenticación
+                .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        // no hay sesiones en servidor, cada request debe traer su JWT
 
-        // agrega tu filtro JWT antes del filtro estándar de login por username/password
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
